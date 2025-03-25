@@ -12,7 +12,7 @@ export default function Home() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
 /*  useEffect(() => {
-    fetch('/publickey.asc')
+    fetch('/publicKey.asc')
         .then(res => res.text())
         .then(setPublicKey)
         .catch(() => setStatus('Fehler beim Laden des öffentlichen Schlüssels'));

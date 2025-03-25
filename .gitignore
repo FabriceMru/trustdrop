@@ -34,10 +34,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Privatekey
-pgp-key.asc
-key.ts
-/public/publickey.asc
-/lib/key.ts
+# Public & PrivateKey
+/public/privateKey.asc
+/public/publicKey.asc
 
-.env*
+.env.local
+.env

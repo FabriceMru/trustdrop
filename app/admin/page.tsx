@@ -234,29 +234,7 @@ export default function AdminPage() {
                                         >
                                             <Eye className="h-5 w-5" />
                                         </button>
-                                        {/*
-                                        DEBUG
-*/}
-                                        {submission.encryptedFile && (
-                                            <button
-                                                className="text-sm text-blue-400 hover:underline ml-2"
-                                                onClick={() => {
-                                                    const blob = new Blob([submission.encryptedFile], { type: 'text/plain' });
-                                                    const url = URL.createObjectURL(blob);
-                                                    const a = document.createElement('a');
-                                                    a.href = url;
-                                                    a.download = `encrypted_${submission.id}.asc`;
-                                                    a.click();
-                                                    URL.revokeObjectURL(url);
-                                                }}
-                                            >
-                                                🔽 Datei herunterladen (debug)
-                                            </button>
-                                        )}
 
-{/*
-                                        DEBUG
-*/}
                                         {submission.encryptedFile && decryptedContent[submission.id]?.file && (
                                             <button
                                                 onClick={() => downloadDecryptedFile(submission.id)}

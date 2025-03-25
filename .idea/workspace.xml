@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69ac2030-52ca-4569-b929-d1f9b3b2ba9a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.bolt/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.bolt/ignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.bolt/prompt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/trustdrop.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/admin/submissions/[id]/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/admin/submissions/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/admin/submissions/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/decrypt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/decrypt.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/encrypt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/encrypt.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/encrypted_a33fbb68-3bae-4e80-90e2-3c204dd4fc07.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/submissions.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/submissions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/submissions.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +39,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2umdI5suUp5p1O7pp4evGT2D8WI" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -96,7 +92,7 @@
       <workItem from="1742859169876" duration="461000" />
       <workItem from="1742859841409" duration="20977000" />
       <workItem from="1742881761541" duration="17611000" />
-      <workItem from="1742922599419" duration="14439000" />
+      <workItem from="1742922599419" duration="20290000" />
     </task>
     <servers />
   </component>

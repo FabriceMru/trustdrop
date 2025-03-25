@@ -9,4 +9,11 @@ const nextConfig = {
   },
 };
 
+module.exports = {
+  env: {
+    PGP_PRIVATE_KEY: process.env.PGP_PRIVATE_KEY,
+    PGP_PUBLIC_KEY: process.env.PGP_PUBLIC_KEY,
+  },
+};
+
 module.exports = nextConfig;

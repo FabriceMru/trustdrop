@@ -36,7 +36,7 @@ npm run dev
 /lib
   encrypt.ts             # OpenPGP-basierte clientseitige Verschlüsselung
 /storage                # Lokale Speicherung der Drops (JSON-Dateien)
-/public/publickey.asc      # Öffentlicher Schlüssel zum Verschlüsseln (optional)
+/public/publicKey.asc      # Öffentlicher Schlüssel zum Verschlüsseln (optional)
 ```
 
 ---
