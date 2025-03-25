@@ -1,28 +1,22 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Shield, Lock, FileText, Send, ChevronRight, Building2, School, Newspaper, Users, Upload } from 'lucide-react';
 
-// This is a demo public key - replace with your actual public key
-const PUBLIC_KEY = `-----BEGIN PGP PUBLIC KEY BLOCK-----
-xjMEZGRkZRYJKwYBBAHaRw8BAQdA/2l+TsNY1JHb6t50yvRc1JHD0U9hxZzR
-tGwZE9ZNPG3NFEpvaG4gRG9lIDxqb2huQGRvZS5pbz7CiQQQFgoAOBYhBHQy
-q7LAQvD7ZIZrn3vww3JNHs/NBQJkZGRlAhsDBQsJCAcCBhUKCQgLAgQWAgMB
-Ah4BAheAAAoJEHvww3JNHs/N2QYA/1HxVZJ6eAGgJBqOtC8G2H8ZVQPGnV4j
-LgYV6+5j5xVDAQDjR0Aq9pGn9qZ96Gz9x/Ow19Gc7VBz+FZbxGqJJ3qOAc44
-BGRkZGUSCisGAQQBl1UBBQEBB0B3CXwZ0Lv+ClH5UB5Aq7h5YDPQxqP5mEzD
-TXUq9JQELgMBCAfCeAQYFggAIBYhBHQyq7LAQvD7ZIZrn3vww3JNHs/NBQJk
-ZGRlAhsMAAoJEHvww3JNHs/NfJIA/jVDt0Ue2VJ5ZmJWwJRUzGsB3UqbTNKX
-BqoJ6oIL+VQBAP9q0J6G1O1wHhv1Qk9YD1ZGZQeqz4DrGY3oYHpvXasB
-=6Yfx
------END PGP PUBLIC KEY BLOCK-----`;
-
 export default function Home() {
+  const [publicKey, setPublicKey] = useState<string | null>(null);
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
   const [fileName, setFileName] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    fetch('/pgp-key.asc')
+        .then(res => res.text())
+        .then(setPublicKey)
+        .catch(() => setStatus('Fehler beim Laden des öffentlichen Schlüssels'));
+  }, []);
 
   const features = [
     {
@@ -67,11 +61,17 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!publicKey) {
+      setStatus('Öffentlicher Schlüssel nicht geladen.');
+      return;
+    }
+
     setStatus('Verschlüssele Nachricht...');
 
     try {
       const { encryptContent } = await import('../lib/encrypt');
-      const { encryptedMessage, encryptedFile } = await encryptContent(message, file || undefined, PUBLIC_KEY);
+      const { encryptedMessage, encryptedFile } = await encryptContent(message, file || undefined, publicKey);
 
       const res = await fetch('/api/drop', {
         method: 'POST',
@@ -227,8 +227,8 @@ export default function Home() {
         <footer className="py-12 px-6 border-t border-gray-800">
           <div className="max-w-7xl mx-auto text-center">
             <p className="text-gray-400">
-              © 2025 TrustDrop. Ein Open-Source-Projekt für mehr Transparenz und Sicherheit.
-            </p>
+              © 2025 TrustDrop – eine Marke von Kōbō Kitsune.
+              Eine datensichere Plattform für anonyme Hinweise im digitalen Zeitalter.</p>
           </div>
         </footer>
       </main>
