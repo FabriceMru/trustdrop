@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Shield, Lock, FileText, Send, ChevronRight, Building2, School, Newspaper, Users, Upload } from 'lucide-react';
+import { publicKey } from '../lib/key.ts';
+
 
 export default function Home() {
   const [publicKey, setPublicKey] = useState<string | null>(null);

@@ -35,3 +35,8 @@ yarn-error.log*
 next-env.d.ts
 
 pgp-key.asc
+key.ts
+/public/pgp-key.asc
+/lib/key.ts
+
+.env*
