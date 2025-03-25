@@ -37,7 +37,7 @@ next-env.d.ts
 # Privatekey
 pgp-key.asc
 key.ts
-/public/pgp-key.asc
+/public/publickey.asc
 /lib/key.ts
 
 .env*

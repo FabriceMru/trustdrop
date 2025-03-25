@@ -12,7 +12,7 @@ export default function Home() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
 /*  useEffect(() => {
-    fetch('/pgp-key.asc')
+    fetch('/publickey.asc')
         .then(res => res.text())
         .then(setPublicKey)
         .catch(() => setStatus('Fehler beim Laden des öffentlichen Schlüssels'));
