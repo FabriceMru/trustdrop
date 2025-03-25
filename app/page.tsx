@@ -1,24 +1,22 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Shield, Lock, FileText, Send, ChevronRight, Building2, School, Newspaper, Users, Upload } from 'lucide-react';
-import { publicKey } from '../lib/key.ts';
-
+import { publicKey } from '../lib/key'; // KEIN .ts anhängen!
 
 export default function Home() {
-  const [publicKey, setPublicKey] = useState<string | null>(null);
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
   const [fileName, setFileName] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
+/*  useEffect(() => {
     fetch('/pgp-key.asc')
         .then(res => res.text())
         .then(setPublicKey)
         .catch(() => setStatus('Fehler beim Laden des öffentlichen Schlüssels'));
-  }, []);
+  }, []);*/
 
   const features = [
     {
@@ -75,6 +73,10 @@ export default function Home() {
       const { encryptContent } = await import('../lib/encrypt');
       const { encryptedMessage, encryptedFile } = await encryptContent(message, file || undefined, publicKey);
 
+      // 🧪 Debug-Ausgabe:
+      console.log({ encryptedMessage, encryptedFile });
+
+
       const res = await fetch('/api/drop', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -82,6 +84,12 @@ export default function Home() {
       });
 
       const data = await res.json();
+
+      if (!data || !data.id) {
+        setStatus('Nachricht übermittelt, aber keine ID empfangen.');
+        return;
+      }
+
       setStatus(`Nachricht sicher übermittelt. Ihre Nachricht-ID: ${data.id}`);
       setMessage('');
       setFileName('');

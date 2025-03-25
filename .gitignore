@@ -34,6 +34,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Privatekey
 pgp-key.asc
 key.ts
 /public/pgp-key.asc

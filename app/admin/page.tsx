@@ -2,7 +2,6 @@
 
 import { useState, useRef } from 'react';
 import { Shield, Key, FileText, Eye, Trash2, Download, Upload, Lock, CheckCircle } from 'lucide-react';
-import * as openpgp from 'openpgp';
 
 interface Submission {
     id: string;
@@ -18,16 +17,15 @@ export default function AdminPage() {
     const [submissions, setSubmissions] = useState<Submission[]>([]);
     const [privateKey, setPrivateKey] = useState('');
     const [passphrase, setPassphrase] = useState('');
-    const [decryptedContent, setDecryptedContent] = useState<{[key: string]: { message: string; file?: Uint8Array }}>({});
+    const [decryptedContent, setDecryptedContent] = useState<{ [key: string]: { message: string; file?: Uint8Array } }>({});
     const [status, setStatus] = useState('');
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Demo password - in production, use proper authentication
         if (password === 'admin123') {
             setIsAuthenticated(true);
-            loadSubmissions();
+            await loadSubmissions();
         } else {
             setStatus('Ungültiges Passwort');
         }
@@ -37,8 +35,15 @@ export default function AdminPage() {
         try {
             const res = await fetch('/api/admin/submissions');
             const data = await res.json();
+
+            if (!Array.isArray(data.submissions)) {
+                throw new Error('Antwort ist kein Array');
+            }
+
             setSubmissions(data.submissions);
         } catch (error) {
+            console.error('Fehler beim Laden:', error);
+            setSubmissions([]);
             setStatus('Fehler beim Laden der Einreichungen');
         }
     };
@@ -69,22 +74,22 @@ export default function AdminPage() {
                 passphrase || undefined
             );
 
-            setDecryptedContent({
-                ...decryptedContent,
+            setDecryptedContent((prev) => ({
+                ...prev,
                 [submission.id]: {
                     message: decryptedMessage as string,
                     file: decryptedFile as Uint8Array
                 }
-            });
+            }));
 
-            // Mark as read
-            const updatedSubmissions = submissions.map(s =>
+            const updatedSubmissions = submissions.map((s) =>
                 s.id === submission.id ? { ...s, read: true } : s
             );
             setSubmissions(updatedSubmissions);
 
             setStatus('Entschlüsselung erfolgreich');
         } catch (error) {
+            console.error(error);
             setStatus('Fehler bei der Entschlüsselung: ' + (error as Error).message);
         }
     };
@@ -109,12 +114,16 @@ export default function AdminPage() {
             await fetch(`/api/admin/submissions/${id}`, {
                 method: 'DELETE'
             });
-            loadSubmissions();
+            await loadSubmissions();
             setStatus('Einreichung gelöscht');
         } catch (error) {
             setStatus('Fehler beim Löschen');
         }
     };
+
+    // --------------------------------------------
+    // RENDERING
+    // --------------------------------------------
 
     if (!isAuthenticated) {
         return (
@@ -169,7 +178,7 @@ export default function AdminPage() {
                         </button>
                     </div>
 
-                    {/* Key Upload Section */}
+                    {/* Key Upload */}
                     <div className="mb-8 p-6 feature-card">
                         <h2 className="text-xl font-semibold text-white mb-4">Privater Schlüssel</h2>
                         <div className="space-y-4">
@@ -204,7 +213,7 @@ export default function AdminPage() {
 
                     {/* Submissions List */}
                     <div className="space-y-6">
-                        {submissions.map((submission) => (
+                        {Array.isArray(submissions) && submissions.map((submission) => (
                             <div key={submission.id} className={`feature-card p-6 ${submission.read ? 'border-emerald-800' : ''}`}>
                                 <div className="flex justify-between items-start mb-4">
                                     <div>
