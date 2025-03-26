@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.gradient-bg {
+/*.gradient-bg {
   background: linear-gradient(to bottom right, #0f172a, #1e293b);
+}*/
+.gradient-bg {
+  @apply bg-gradient-to-b from-gray-950 to-gray-900;
 }
 
 .feature-card {
@@ -39,4 +42,12 @@
 
 .input-rounded {
   border-radius: 0.5rem;
+}
+
+.input {
+  @apply bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-emerald-500;
+}
+
+.primary-button {
+  @apply bg-emerald-500 text-gray-900 rounded hover:bg-emerald-400 transition;
 }
