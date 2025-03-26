@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { CreditCard, Banknote, EuroIcon } from 'lucide-react';
+import TrustDropHighlight from '@/components/TrustDropHighlight';
 
 export default function DonatePage() {
     const [amount, setAmount] = useState('100');
@@ -19,7 +20,7 @@ export default function DonatePage() {
     return (
         <main className="min-h-screen gradient-bg py-20 px-6 text-white">
             <div className="max-w-4xl mx-auto feature-card p-8 shadow-lg">
-                <h1 className="text-3xl font-bold mb-6">Unterstütze TrustDrop</h1>
+                <h1 className="text-3xl font-bold mb-6">Unterstütze <TrustDropHighlight /></h1>
                 <p className="mb-8 text-gray-300">
                     Deine Spende hilft dabei, Whistleblower und anonyme Hinweise sicher zu ermöglichen.
                 </p>
@@ -104,9 +105,9 @@ export default function DonatePage() {
                 {/* Bankdaten anzeigen (statisch oder dynamisch) */}
                 <div className="bg-gray-900 border border-gray-700 p-4 rounded text-sm">
                     <p className="text-emerald-400 font-semibold mb-2">Bankverbindung für Überweisung:</p>
-                    <p className="text-gray-300">Kontoinhaber: TrustDrop UG (geplant)</p>
+                    <p className="text-gray-300">Kontoinhaber: <TrustDropHighlight /> UG (geplant)</p>
                     <p className="text-gray-300">IBAN: DE12 3456 7890 1234 5678 90</p>
-                    <p className="text-gray-300">Verwendungszweck: Spende TrustDrop</p>
+                    <p className="text-gray-300">Verwendungszweck: Spende <TrustDropHighlight /></p>
                 </div>
             </div>
         </main>

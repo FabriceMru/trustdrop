@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { Upload, Send } from 'lucide-react';
 import { publicKey } from '../../lib/key';
+import TrustDropHighlight from '@/components/TrustDropHighlight';
 
 export default function MessagePage() {
     const [message, setMessage] = useState('');
@@ -95,12 +96,13 @@ export default function MessagePage() {
                                 onClick={handleFileAreaClick}
                                 className="file-upload-area p-8 cursor-pointer text-center"
                             >
-                                <Upload className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
+                                <Upload className="h-8 w-8 text-emerald-400 mx-auto mb-2"/>
                                 {fileName ? (
                                     <p className="text-emerald-400">{fileName}</p>
                                 ) : (
                                     <>
-                                        <p className="text-gray-300">Dateien hierher ziehen oder klicken zum Auswählen</p>
+                                        <p className="text-gray-300">Dateien hierher ziehen oder klicken zum
+                                            Auswählen</p>
                                         <p className="text-gray-500 text-sm mt-1">Maximale Dateigröße: 25MB</p>
                                     </>
                                 )}
@@ -112,7 +114,7 @@ export default function MessagePage() {
                                 type="submit"
                                 className="primary-button w-full inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-900 shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                             >
-                                <Send className="h-5 w-5 mr-2" />
+                                <Send className="h-5 w-5 mr-2"/>
                                 Sicher übermitteln
                             </button>
                             {status && <p className="mt-2 text-sm text-emerald-400">{status}</p>}

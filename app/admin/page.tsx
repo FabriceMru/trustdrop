@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { Shield, Key, FileText, Eye, Trash2, Download, Upload, Lock, CheckCircle } from 'lucide-react';
+import TrustDropHighlight from '@/components/TrustDropHighlight';
 
 interface Submission {
     id: string;
@@ -132,7 +133,7 @@ export default function AdminPage() {
                     <div className="feature-card p-8 shadow-lg">
                         <div className="text-center mb-6">
                             <Shield className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
-                            <h1 className="text-2xl font-bold text-white">TrustDrop Admin</h1>
+                            <h1 className="text-2xl font-bold text-white"> <TrustDropHighlight /> Admin</h1>
                         </div>
                         <form onSubmit={handleLogin} className="space-y-6">
                             <div>

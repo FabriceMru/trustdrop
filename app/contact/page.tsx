@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import TrustDropHighlight from '@/components/TrustDropHighlight';
+
 
 export default function ContactPage() {
     const [form, setForm] = useState({
@@ -27,7 +29,7 @@ export default function ContactPage() {
             <div className="max-w-2xl mx-auto">
                 <h1 className="text-3xl font-bold mb-6">Kontakt aufnehmen</h1>
                 <p className="text-gray-300 mb-8">
-                    Wenn Sie TrustDrop in Ihrer Organisation nutzen möchten oder Fragen haben, füllen Sie bitte das Formular aus.
+                    Wenn Sie <TrustDropHighlight /> in Ihrer Organisation nutzen möchten oder Fragen haben, füllen Sie bitte das Formular aus.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">

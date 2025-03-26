@@ -51,3 +51,7 @@
 .primary-button {
   @apply bg-emerald-500 text-gray-900 rounded hover:bg-emerald-400 transition;
 }
+
+.trustdrop {
+  @apply text-emerald-400 font-semibold;
+}
