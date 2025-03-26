@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69ac2030-52ca-4569-b929-d1f9b3b2ba9a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/encrypted_a33fbb68-3bae-4e80-90e2-3c204dd4fc07.asc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/submissions.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/submissions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/submissions.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +86,7 @@
       <workItem from="1742859169876" duration="461000" />
       <workItem from="1742859841409" duration="20977000" />
       <workItem from="1742881761541" duration="17611000" />
-      <workItem from="1742922599419" duration="20290000" />
+      <workItem from="1742922599419" duration="24165000" />
     </task>
     <servers />
   </component>

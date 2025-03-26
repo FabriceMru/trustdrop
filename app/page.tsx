@@ -11,12 +11,6 @@ export default function Home() {
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-/*  useEffect(() => {
-    fetch('/publicKey.asc')
-        .then(res => res.text())
-        .then(setPublicKey)
-        .catch(() => setStatus('Fehler beim Laden des öffentlichen Schlüssels'));
-  }, []);*/
 
   const features = [
     {
