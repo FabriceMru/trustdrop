@@ -6,6 +6,7 @@ import { publicKey } from '../../lib/key';
 import TrustDropHighlight from '@/components/TrustDropHighlight';
 
 export default function MessagePage() {
+    const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [status, setStatus] = useState('');
     const [fileName, setFileName] = useState('');
@@ -24,7 +25,7 @@ export default function MessagePage() {
 
         try {
             const { encryptContent } = await import('../../lib/encrypt');
-            const { encryptedMessage, encryptedFile } = await encryptContent(message, file || undefined, publicKey);
+            const { encryptedMessage, encryptedFile } = await encryptContent(`${subject}\n\n${message}`, file || undefined, publicKey);
 
             const res = await fetch('/api/drop', {
                 method: 'POST',
@@ -40,6 +41,7 @@ export default function MessagePage() {
             }
 
             setStatus(`✅ Nachricht sicher übermittelt. Ihre Nachricht-ID: ${data.id}`);
+            setSubject('');
             setMessage('');
             setFileName('');
             setFile(null);
@@ -67,6 +69,24 @@ export default function MessagePage() {
                 <div className="feature-card p-8 shadow-lg">
                     <h2 className="text-2xl font-bold mb-6 text-white">Sicher und anonym melden</h2>
                     <form onSubmit={handleSubmit} className="space-y-6">
+
+                        {/* Betreff */}
+                        <div>
+                            <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                                Betreff (optional)
+                            </label>
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="Worum geht es?"
+                                value={subject}
+                                onChange={(e) => setSubject(e.target.value)}
+                                className="w-full px-4 py-3 bg-gray-900 border border-gray-700 input-rounded shadow-sm text-white placeholder-gray-500 focus:ring-emerald-500 focus:border-emerald-500"
+                            />
+                        </div>
+
+                        {/* Nachricht */}
                         <div>
                             <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                                 Ihre verschlüsselte Nachricht
@@ -82,6 +102,7 @@ export default function MessagePage() {
                             />
                         </div>
 
+                        {/* Datei-Upload */}
                         <div>
                             <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Dokumente anhängen (optional)
@@ -96,25 +117,25 @@ export default function MessagePage() {
                                 onClick={handleFileAreaClick}
                                 className="file-upload-area p-8 cursor-pointer text-center"
                             >
-                                <Upload className="h-8 w-8 text-emerald-400 mx-auto mb-2"/>
+                                <Upload className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
                                 {fileName ? (
                                     <p className="text-emerald-400">{fileName}</p>
                                 ) : (
                                     <>
-                                        <p className="text-gray-300">Dateien hierher ziehen oder klicken zum
-                                            Auswählen</p>
+                                        <p className="text-gray-300">Dateien hierher ziehen oder klicken zum Auswählen</p>
                                         <p className="text-gray-500 text-sm mt-1">Maximale Dateigröße: 25MB</p>
                                     </>
                                 )}
                             </div>
                         </div>
 
+                        {/* Submit */}
                         <div>
                             <button
                                 type="submit"
                                 className="primary-button w-full inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-900 shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                             >
-                                <Send className="h-5 w-5 mr-2"/>
+                                <Send className="h-5 w-5 mr-2" />
                                 Sicher übermitteln
                             </button>
                             {status && <p className="mt-2 text-sm text-emerald-400">{status}</p>}
