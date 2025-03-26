@@ -95,15 +95,19 @@ export default function AdminPage() {
         }
     };
 
-    const downloadDecryptedFile = (submissionId: string, fileName: string = 'decrypted-file') => {
+    const downloadDecryptedFile = (submissionId: string) => {
         const decrypted = decryptedContent[submissionId]?.file;
-        if (!decrypted) return;
+        if (!decrypted) {
+            alert('Keine entschlüsselte Datei gefunden');
+            return;
+        }
 
-        const blob = new Blob([decrypted]);
+        const blob = new Blob([decrypted], { type: 'application/octet-stream' });
         const url = URL.createObjectURL(blob);
+
         const a = document.createElement('a');
         a.href = url;
-        a.download = fileName;
+        a.download = `${submissionId}.bin`; // Du kannst hier später den Original-Dateinamen einsetzen
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -122,10 +126,6 @@ export default function AdminPage() {
         }
     };
 
-    // --------------------------------------------
-    // RENDERING
-    // --------------------------------------------
-
     if (!isAuthenticated) {
         return (
             <main className="min-h-screen gradient-bg py-20 px-6">
@@ -133,7 +133,7 @@ export default function AdminPage() {
                     <div className="feature-card p-8 shadow-lg">
                         <div className="text-center mb-6">
                             <Shield className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
-                            <h1 className="text-2xl font-bold text-white"> <TrustDropHighlight /> Admin</h1>
+                            <h1 className="text-2xl font-bold text-white"><TrustDropHighlight /> Admin</h1>
                         </div>
                         <form onSubmit={handleLogin} className="space-y-6">
                             <div>
@@ -245,6 +245,7 @@ export default function AdminPage() {
                                                 <Download className="h-5 w-5" />
                                             </button>
                                         )}
+
                                         <button
                                             onClick={() => deleteSubmission(submission.id)}
                                             className="p-2 text-red-400 hover:text-red-300 transition-colors"
