@@ -1,11 +1,11 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 
 export async function DELETE(
     request: NextRequest,
     { params }: { params: { id: string } }
-): Promise<Response> {
+): Promise<NextResponse> {
     const filePath = path.join(process.cwd(), 'storage', 'submissions.json');
 
     try {
@@ -14,9 +14,9 @@ export async function DELETE(
         const updated = submissions.filter((s: any) => s.id !== params.id);
 
         await fs.writeFile(filePath, JSON.stringify(updated, null, 2));
-        return Response.json({ success: true });
+        return NextResponse.json({ success: true });
     } catch (error) {
         console.error('Fehler beim Löschen:', error);
-        return Response.json({ success: false }, { status: 500 });
+        return NextResponse.json({ success: false }, { status: 500 });
     }
 }
