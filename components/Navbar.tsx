@@ -29,7 +29,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(true);
 
     return (
         <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
