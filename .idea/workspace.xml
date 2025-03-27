@@ -6,6 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="69ac2030-52ca-4569-b929-d1f9b3b2ba9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/nutzerrollen/admins/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/docs/nutzerrollen/admins/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/nutzerrollen/empfaenger/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/docs/nutzerrollen/empfaenger/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/nutzerrollen/hinweisgeber/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/docs/nutzerrollen/hinweisgeber/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/docs/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/vorteile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/docs/vorteile/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/was-ist-trustdrop/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/docs/was-ist-trustdrop/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/wie-es-funktioniert/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/docs/wie-es-funktioniert/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/DocsSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/DocsSidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/submissions.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/submissions.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +71,8 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/docs/kontakt/kontaktmoeglichkeiten" />
+      <recent name="$PROJECT_DIR$/app/docs/datenschutz" />
       <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/app/api/admin/submissions" />
       <recent name="$PROJECT_DIR$" />

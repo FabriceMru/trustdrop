@@ -16,6 +16,7 @@ const links = [
     {
         title: 'Nutzerrollen',
         items: [
+            { label: 'Übersicht', href: '/docs/nutzerrollen' },
             { label: 'Hinweisgeber', href: '/docs/nutzerrollen/hinweisgeber' },
             { label: 'Empfänger', href: '/docs/nutzerrollen/empfaenger' },
             { label: 'Admins', href: '/docs/nutzerrollen/admins' },
@@ -23,24 +24,30 @@ const links = [
     },
     {
         title: 'Technologie',
-        items: [],
+        items: [
+            { label: 'Verschlüsselung & Schlüssel', href: '/docs/technologie/verschluesselung-und-schluessel' },
+        ],
     },
     {
         title: 'Sicherheit',
-        items: [],
+        items: [
+            { label: 'Dateisignaturen & Verifikation', href: '/docs/sicherheit' },
+        ],
     },
     {
         title: 'Datenschutz',
-        items: [],
-    },
-    {
-        title: 'Audits',
-        items: [],
+        items: [
+            { label: 'Grundlagen & DSGVO', href: '/docs/datenschutz/grundlagen' },
+            { label: 'Keine Metadaten', href: '/docs/datenschutz/metadaten' },
+        ],
     },
     {
         title: 'Kontakt',
-        items: [],
+        items: [
+            { label: 'Kontaktmöglichkeiten', href: '/docs/kontakt/kontaktmoeglichkeiten' },
+        ],
     },
+
 ];
 
 export default function DocsSidebar() {
@@ -60,7 +67,7 @@ export default function DocsSidebar() {
                                     href={link.href}
                                     className={clsx(
                                         'block px-2 py-1 rounded hover:bg-gray-800 transition-colors',
-                                        pathname === link.href && 'bg-gray-800 text-emerald-400 font-semibold'
+                                        pathname === link.href && 'bg-gray-800 text-white font-semibold'
                                     )}
                                 >
                                     {link.label}

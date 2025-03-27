@@ -24,7 +24,7 @@ export default function AdminPage() {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (password === 'admin123') {
+        if (password === 'admin') {
             setIsAuthenticated(true);
             await loadSubmissions();
         } else {
@@ -133,13 +133,12 @@ export default function AdminPage() {
                     <div className="feature-card p-8 shadow-lg">
                         <div className="text-center mb-6">
                             <Shield className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
-                            <h1 className="text-2xl font-bold text-white"><TrustDropHighlight /> Admin</h1>
+                            <h1 className="text-2xl font-bold text-white"><TrustDropHighlight />
+                                <br/> <br/> Admin</h1>
                         </div>
                         <form onSubmit={handleLogin} className="space-y-6">
                             <div>
-                                <label className="block text-sm font-medium text-gray-300 mb-2">
-                                    Admin-Passwort
-                                </label>
+
                                 <input
                                     type="password"
                                     value={password}
@@ -201,7 +200,7 @@ export default function AdminPage() {
                                 <div className="flex items-center space-x-4">
                                     <input
                                         type="password"
-                                        placeholder="Passphrase (optional)"
+                                        placeholder="Passwort"
                                         value={passphrase}
                                         onChange={(e) => setPassphrase(e.target.value)}
                                         className="px-4 py-2 bg-gray-900 border border-gray-700 input-rounded text-white"
@@ -259,7 +258,9 @@ export default function AdminPage() {
                                 {decryptedContent[submission.id] && (
                                     <div className="mt-4 p-4 bg-gray-900 input-rounded">
                                         <h3 className="text-sm font-medium text-gray-300 mb-2">Entschlüsselte Nachricht:</h3>
-                                        <p className="text-white whitespace-pre-wrap">{decryptedContent[submission.id].message}</p>
+                                        <div className="bg-gray-900 p-4 rounded whitespace-pre-wrap break-words font-mono text-gray-100">
+                                            {decryptedContent[submission.id].message}
+                                        </div>
                                     </div>
                                 )}
 

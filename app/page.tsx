@@ -172,13 +172,22 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 px-6 border-t border-gray-800">
-          <div className="max-w-7xl mx-auto text-center">
+        {/* Footer */}
+        <footer className="py-12 px-6 border-t border-gray-800 mt-12">
+          <div className="max-w-7xl mx-auto text-center space-y-4">
             <p className="text-gray-400">
-              © 2025 <TrustDropHighlight /> – eine Marke von Kōbō Kitsune. Eine datensichere Plattform für anonyme Hinweise im digitalen Zeitalter.
+              © {new Date().getFullYear()} <TrustDropHighlight /> – eine Marke von Kōbō Kitsune.
+              Eine datensichere Plattform für anonyme Hinweise im digitalen Zeitalter.
             </p>
+
+            <div className="flex justify-center space-x-6 text-sm text-gray-400">
+              <Link href="/docs/datenschutz/grundlagen" className="hover:text-emerald-400 underline">Datenschutz</Link>
+              <span className="text-gray-500">|</span>
+              <Link href="/impressum" className="hover:text-emerald-400 underline">Impressum</Link>
+            </div>
           </div>
         </footer>
+
       </main>
   );
 }
