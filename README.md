@@ -2,7 +2,7 @@
 
 **TrustDrop** ist eine datenschutzorientierte Open-Source-Plattform zur sicheren und anonymen Übermittlung von Hinweisen und vertraulichen Dokumenten. Entwickelt von [Kōbō Kitsune (工房狐)](#), vereint TrustDrop moderne Technologie mit ethischem Design – für Menschen, die etwas sagen möchten, ohne sich selbst zu gefährden.
 
----
+-----
 
 ## 🚀 Features
 
