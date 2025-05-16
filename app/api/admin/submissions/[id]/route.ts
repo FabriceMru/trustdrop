@@ -4,14 +4,15 @@ import path from 'path';
 
 export async function DELETE(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    context: { params: { id: string } }
 ): Promise<NextResponse> {
-    const filePath = path.join(process.cwd(), 'storage', 'submissions.json');
+    const { id } = context.params;
+    const filePath: string = path.join(process.cwd(), 'storage', 'submissions.json');
 
     try {
-        const fileData = await fs.readFile(filePath, 'utf-8');
-        const submissions = JSON.parse(fileData);
-        const updated = submissions.filter((s: any) => s.id !== params.id);
+        const fileData: string = await fs.readFile(filePath, 'utf-8');
+        const submissions: any[] = JSON.parse(fileData);
+        const updated: any[] = submissions.filter((s: any) => s.id !== id);
 
         await fs.writeFile(filePath, JSON.stringify(updated, null, 2));
         return NextResponse.json({ success: true });
